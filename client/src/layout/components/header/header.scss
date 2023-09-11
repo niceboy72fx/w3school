@@ -1,0 +1,72 @@
+.header {
+  &-bar-navi {
+    &-container {
+      &-list-item {
+      }
+    }
+  }
+}
+
+.container-list {
+  &-item {
+    padding: 15px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  &-search {
+  }
+}
+
+.navi-container-search {
+}
+
+.container-list-item:hover {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.list-search-input {
+  outline: 2px solid #cecece;
+  padding: 1px 1px 1px 1px;
+}
+
+.list-search-input:focus {
+  outline: 10px solid #04aa6d;
+}
+
+.bar-right-container button {
+  padding: 7px;
+  padding-left: 23px;
+  padding-right: 23px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.bar-right-container {
+  background-color: #d9eee1;
+  border-radius: 76px;
+}
+
+.right-container {
+  &-signup {
+    background-color: #04aa6d;
+    color: white;
+    border-radius: 76px;
+  }
+  &-login:hover {
+  }
+}
+
+.bar-right-container::hover {
+  background-color: #04aa6d;
+}
+
+.header-naviagtion {
+  background-color: #282a35;
+  color: white;
+  text-transform: uppercase;
+  ul > li {
+    padding: 5px 15px 5px 15px;
+    font-size: 15px !important;
+  }
+}
