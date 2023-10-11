@@ -1,12 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500&display=swap");
+
+@font-face {
+  font-family: "'Source Sans Pro Topnav', sans-serif";
+  src: url("./assert/font/source-sans-pro/SourceSansPro-Semibold.otf")
+    format("opentype");
+}
+
 :root {
-  font-family: "Raleway", sans-serif;
   line-height: 1.5;
   font-weight: none;
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,4 +40,14 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
+}
+
+:root {
+  --green-w3: #059862;
+  --light-green-w3: #d9eee1;
+  --white-green-w3: #d9eee1;
+  --yellow-w3: #fff4a3;
+  --light-black-w3: #282a35;
+  --light-pink-w3: #f3ecea;
+  --light-blue-w3: #96d4d4;
 }

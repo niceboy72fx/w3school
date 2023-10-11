@@ -1,0 +1,94 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(./img/lynx_landing.png), url(./img/background_in_space.png);
+  background-repeat: no-repeat, repeat;
+  box-sizing: inherit;
+  background-position: right bottom, center center;
+}
+.footer-content {
+  padding: 40px 80px 300px 80px;
+  &-header {
+  }
+  &-body {
+  }
+  &-footer {
+  }
+}
+
+.content-header {
+  &-logo {
+    margin: 0;
+  }
+  &-item {
+    font-weight: bold;
+    padding: 40px;
+    font-size: 14px;
+  }
+  &-item:hover {
+    text-decoration: underline solid #fff4a3;
+  }
+}
+
+.content-body-list {
+  width: auto;
+  float: left;
+  padding-left: 40px;
+  padding-right: 140px;
+  color: #ddd;
+  font-family: Source Sans Pro, sans-serif;
+  font-size: 12px;
+  display: block;
+  line-height: 15px;
+
+  h3 {
+    font-weight: 700;
+    margin: 10px 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  a:hover {
+    color: #fff4a3;
+  }
+}
+
+.footer-content-header {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+// footer {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background: url(./img/lynx_landing.png), url(./img/background_in_space.png);
+//   background-repeat: no-repeat, repeat;
+//   box-sizing: inherit;
+//   background-position: right bottom, center center;
+// }
+
+// .footer-box {
+//   padding: 40px 80px 300px 80px;
+// }
+
+// .footer-box ul {
+//   text-decoration: none;
+//   list-style: none;
+//   margin: 0;
+// }
+
+// .footer-box ul > li {
+//   display: inline-block;
+//   padding: 16px 18px 16px 18px;
+//   text-transform: uppercase;
+//   font-weight: bold;
+//   color: var(--yellow-w3);
+// }
+// .footer-box ul > li:hover {
+//   text-decoration: underline solid #fff4a3;
+// }

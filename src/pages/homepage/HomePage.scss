@@ -1,0 +1,240 @@
+.w3 {
+  &-intro {
+    padding-top: 170px;
+    padding-bottom: 90px;
+    background: url(./img/lynx_in_space.png), url(./img/background_in_space.png);
+    background-repeat: no-repeat, repeat;
+    background-position: 90% 60%, center center;
+  }
+  &-draw {
+  }
+  &-code {
+  }
+}
+
+.intro-search {
+  &-banner {
+    font-weight: 900;
+    font-size: 4.2rem;
+  }
+  &-panel {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #fff4a3;
+  }
+  &-input {
+    padding-left: 20px;
+    .search-input-outline {
+      background-color: #059862;
+      padding-left: 35px;
+      padding-right: 20px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+    .search-input-outline:hover {
+      background: #058757;
+      transition: 0.1s linear;
+    }
+  }
+  &-href {
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: underline solid white;
+  }
+  &-href:hover {
+    color: #fff4a3;
+    text-decoration: underline solid #fff4a3;
+    transition: 0.1s linear;
+  }
+}
+
+.render-tag {
+  &-lang {
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
+    }
+    p {
+      margin-top: 1.2em;
+      margin-bottom: 1.2em;
+      font-size: 19px;
+      font-weight: 600;
+      text-align: center !important;
+    }
+    button {
+      font-size: 18px;
+      background-color: #058757;
+      padding: 10px 20px 10px 20px;
+      min-width: 13rem;
+      max-width: 14rem;
+      margin: 10px 10px 10px 10px;
+      border-radius: 30px;
+    }
+    padding: 40px 40px 40px 40px;
+  }
+  &-code {
+    padding: 0px 30px 0px 30px;
+  }
+}
+
+.tag-code-padlet {
+  padding: 10px 10px 10px 10px;
+  background-color: #e7e9eb;
+  border-radius: 5px;
+
+  width: 100%;
+  p {
+    font-weight: 600;
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  button {
+    font-size: 18px;
+    background-color: #058757;
+    padding: 10px 20px 10px 20px;
+    width: 13rem;
+    margin: 10px 10px 10px 10px;
+    border-radius: 30px;
+    color: white;
+  }
+}
+
+.w3-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-green-w3);
+}
+
+.code-padlet-run {
+  width: 350px;
+  height: 360px;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 20px 10px 20px;
+  background-color: white;
+}
+
+
+.score-containner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 40px 40px 40px;
+}
+
+.containner-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.containner-header h2 {
+  font-size: 65px;
+  font-weight: 700;
+  margin: 20px 20px 20px 20px;
+}
+
+.score-containner p {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.score-containner button {
+  padding: 18px 70px 18px 70px;
+  margin: 25px 10px 25px 10px;
+  font-size: 20px;
+  border-radius: 35px;
+  box-shadow: none;
+  border: none;
+  font-weight: 600;
+  background-color: #059862 !important;
+  color: white !important;
+}
+
+.w3-excercise {
+  background-color: var(--light-black-w3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.excercise-flex {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
+.flex-header {
+  text-align: center;
+  color: white !important;
+}
+
+.flex-header h2 {
+  font-size: 55px;
+  margin: 10px 0;
+  font-weight: 700;
+  width: 100%;
+}
+
+.flex-header p {
+  font-weight: 700;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.flex-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+.body-box {
+  padding: 70px 50px;
+  font-size: 35px;
+  font-weight: 700;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px 20px 20px 20px;
+}
+
+.ex-background {
+  background-color: var(--green-w3);
+  color: white;
+}
+
+.qui-background {
+  background-color: var(--yellow-w3);
+  color: var(--light-black-w3);
+}
+
+.w3-lang {
+  margin-top: 0px;
+  background-color: var(--light-green-w3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lang-grid {
+  padding: 100px 100px 100px 100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.lang-grid > div {
+  font-weight: 700;
+  text-align: center;
+  font-size: 30px;
+  padding: 30px 0px 30px 0px;
+}
