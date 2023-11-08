@@ -2,6 +2,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { RenderBody } from "./RenderBody";
 import "./HomePage.scss";
 import img from "./img/myl-green-off.png";
+import mock from "./img/html.jpg";
 import React from "react";
 
 const dataLang = [
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
     <section className="w3">
       <div className="w3-intro w-full  flex items-center justify-center text-center">
         <div className="w3-intro-search flex flex-col items-center justify-center  ">
-          <h1 className="intro-search-banner pb-5 text-bold text-white w-full">
+          <h1 className="intro-search-banner pb-3 text-bold text-white w-full">
             Learn to Code
           </h1>
           <h2
@@ -79,32 +80,19 @@ const HomePage: React.FC = () => {
         {RenderBody.map((item: any) => {
           return (
             <div
-              className="w3-code-render w-full flex justify-center items-center flex-wrap"
+              className="langtag-component"
               style={{ backgroundColor: item.backgroundColor }}
             >
-              <div className="code-render-tag flex justify-center flex items-center p-8  grid grid-flow-col grid-cols-2 flex-wrap">
-                <div className="render-tag-lang flex flex-col justify-center items-center ">
-                  <h1 style={{ color: item.textColor }}>{item.name}</h1>
-                  <p style={{ color: item.textColor }}>{item.title}</p>
-                  {item.button.map((temp: any) => {
-                    return (
-                      <button
-                        style={{
-                          color: temp.textColor,
-                          backgroundColor: temp.backgroundColor,
-                        }}
-                      >
-                        {temp.name}
-                      </button>
-                    );
-                  })}
+              <div className="component-boxing">
+                <div className="boxing-lang box-margin">
+                  <h2>{item.name}</h2>
+                  <p>{item.title}</p>
+                  <button>Learn {item.name}</button>
                 </div>
-                <div className="render-tag-code 1">
-                  <div className="tag-code-padlet shadow-2xl">
-                    <p>{item.titleName}</p>
-                    <div className="code-padlet-run"></div>
-                    <button>Try it Yourself</button>
-                  </div>
+                <div className="boxing-example box-margin" id="hide_container">
+                  <p className="font-bold">{item.name} Example</p>
+                  <img src={mock} />
+                  <button>Try it Yourself</button>
                 </div>
               </div>
             </div>

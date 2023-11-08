@@ -114,7 +114,6 @@
   background-color: white;
 }
 
-
 .score-containner {
   display: flex;
   align-items: center;
@@ -226,10 +225,12 @@
 }
 .lang-grid {
   padding: 100px 100px 100px 100px;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
+  @media (min-width: 592px) {
+    width: 100%;
+  }
 }
 
 .lang-grid > div {
@@ -237,4 +238,111 @@
   text-align: center;
   font-size: 30px;
   padding: 30px 0px 30px 0px;
+}
+/*----------------------------------------------------------------*/
+.langtag-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 30px 30px 30px;
+}
+
+.component-boxing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.boxing-lang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.boxing-lang h2 {
+  font-weight: 700;
+  font-size: 50px;
+  margin: 2px 0 20px 0 !important;
+}
+
+.boxing-lang p {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.boxing-lang button {
+  padding: 13px 50px 13px 50px;
+  margin: 20px 20px 20px;
+  font-size: 18px;
+  border-radius: 25px;
+  box-shadow: none;
+  border: none;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #059862 !important;
+  color: white !important;
+}
+
+.boxing-example {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #38444d;
+  padding: 25px 25px 25px 25px;
+  border-radius: 10px;
+}
+
+.boxing-example p {
+  font-size: 24px;
+  color: white;
+  font-weight: 400;
+  margin: 10px 0;
+  box-sizing: inherit;
+  margin: 10px 10px 10px 10px;
+}
+
+.boxing-example img {
+  max-width: 400px;
+  max-height: 280px;
+}
+
+.box-margin {
+  margin: 12px;
+}
+
+.boxing-lang,
+.boxing-example {
+  width: 500px;
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.boxing-example button {
+  padding: 13px 30px 13px 30px;
+  margin: 20px 20px 20px;
+  font-size: 13px;
+  border-radius: 25px;
+  box-shadow: none;
+  border: none;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #059862 !important;
+  color: white !important;
+}
+
+#hide_container {
+  @media (max-width: 700px) {
+    display: none;
+  }
 }

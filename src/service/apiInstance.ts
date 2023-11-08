@@ -1,5 +1,6 @@
 import { message } from "antd";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 export const apiBaseUrl: string = "http://localhost";
 
@@ -17,15 +18,35 @@ export const fetchCSRFToken = async () => {
 };
 
 export const Auth = async (req: object, auth: string) => {
-  // const [messageApi] = message.useMessage();
-  fetchCSRFToken();
+  await fetchCSRFToken();
   try {
     const response = await axiosInstance.post(`/${auth}`, req);
-    // messageApi.success("Login success ! Please wait a minute ! :3");
-    console.log(response.data.success);
-    sessionStorage.setItem("login", JSON.stringify(response.data.success));
-    return response.data.success;
+    localStorage.setItem("login", "true");
   } catch (error) {
+    throw new Error("Authentication failed");
+  }
+};
+
+export const LogOut = async () => {
+  await fetchCSRFToken();
+  try {
+    const response = await axiosInstance.post(`/logout`);
+    localStorage.removeItem("login");
+    window.location.replace("/");
+  } catch (error) {
+    throw new Error("Authentication failed");
+  }
+};
+
+export const ResetPassword = async (req: object) => {
+  const navigate = useNavigate();
+  await fetchCSRFToken();
+  try {
+    const response = await axiosInstance.post(`/reset-password`, req);
+    navigate("/forgot/email-sent");
+    console.log(response);
+  } catch (error) {
+    console.log(error);
     // messageApi.error("" + error);
     throw new Error("Authentication failed");
   }

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ActionLogin, ActionRegister } from "../../action/auth";
 import axios from "axios";
-import { Auth } from "../../../service/apiInstance";
+import { Auth, LogOut, ResetPassword } from "../../../service/apiInstance";
 
 const AuthSlice = createSlice({
   name: "auth",
@@ -10,10 +10,9 @@ const AuthSlice = createSlice({
     logIn: (state, action) => {
       Auth(action.payload, "login");
     },
-    logOut: (state, action) => action.payload,
+    logOut: (state, action) => LogOut(),
     register: (state, action) => Auth(action.payload, "register"),
-    forgotPassword: (state, action) => action.payload,
-    resetPassword: (state, action) => action.payload,
+    forgotPassword: (state, action) => ResetPassword({ email: action.payload }),
   },
 });
 
