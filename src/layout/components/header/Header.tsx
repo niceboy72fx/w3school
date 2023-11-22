@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import imageLogo from "../../../assert/logo/W3Schools_logo.svg";
 import "./header.scss";
-import { SearchOutlined } from "@ant-design/icons";
+import {
+  LogoutOutlined,
+  ReadOutlined,
+  SearchOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router";
 import ButtonGroup from "antd/es/button/button-group";
-import { Button } from "antd";
+import { Avatar, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../../redux/reducer/auth";
+import { Dropdown } from "flowbite-react";
 
 const TempData: Array = [
   { name: "Tutorial" },
@@ -15,11 +21,7 @@ const TempData: Array = [
   { name: "Serviced" },
 ];
 
-interface BannerName {
-  name: any;
-}
-
-export const HeaderBody: React.FC<BannerName> = ({ name }) => {
+export const HeaderBody: React.FC<{ name: any }> = ({ name }) => {
   return (
     <div className="header-dropdown " style={{}}>
       {name == "Menu" ? (
@@ -61,6 +63,7 @@ export const Header: React.FC = () => {
     dispatch(logOut());
     navigate("/");
   };
+  const localTest: boolean = localStorage.getItem("login") || false;
   return (
     <header className="header left-0 right-0  ">
       <div className="header-bar flex align-center justify-between bg-white">
@@ -70,6 +73,7 @@ export const Header: React.FC = () => {
             title="W3Schools"
             width={"38px"}
             className="m-2 ml-5 mr-5"
+            onClick={() => navigate("/")}
           />
           <div className="bar-left-container">
             <ul
@@ -119,9 +123,49 @@ export const Header: React.FC = () => {
         <div className="header-bar-right flex flex-row items-center">
           {localStorage.getItem("login") == "true" ? (
             <div className="mr-14">
-              <Button type="primary" className="bg-green-500" onClick={LogOut}>
-                Sign out
-              </Button>
+              <Dropdown
+                label={
+                  <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-green-600 float-left">
+                    <svg
+                      className="absolute w-12 h-12 text-white -left-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      alt="My Learning"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                }
+                arrowIcon={false}
+                inline
+              >
+                <Dropdown.Item
+                  className="text-black p-5 flex flex-row items-center justify-start"
+                  onClick={() => {
+                    navigate("/my-learning");
+                  }}
+                >
+                  <ReadOutlined className="m-2" />
+                  <p className="m-2">My Learning</p>
+                </Dropdown.Item>
+                <Dropdown.Item
+                  className="text-black p-5 flex flex-row items-center justify-start"
+                  onClick={() => navigate("/my-infor")}
+                >
+                  <UserOutlined className="m-2" />
+                  <p className="m-2">Your Account</p>
+                </Dropdown.Item>
+                <Dropdown.Divider className="text-black" />
+                <Dropdown.Item className="text-black p-5 flex flex-row items-center justify-start">
+                  <LogoutOutlined className="m-2" />
+                  <p className="m-2 ">Sign out</p>
+                </Dropdown.Item>
+              </Dropdown>
             </div>
           ) : (
             <div className="bar-right-container flex flex-row items-center m-2 ml-5 mr-5 ">
@@ -146,7 +190,7 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      <div className="header-naviagtion flex flex-row items-center">
+      <div className="header-naviagtion flex flex-row items-center justify-between">
         <ul className="header-navigation-list flex flex-row items-center">
           <li className="">
             <button>Sign Up</button>
