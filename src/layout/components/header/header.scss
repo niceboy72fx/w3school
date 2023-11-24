@@ -1,6 +1,7 @@
 .header {
   position: fixed;
   opacity: 1;
+  top: 0;
   &-bar-navi {
     &-container {
       &-list-item {
@@ -103,5 +104,35 @@
 #hiden {
   @media (max-width: 744px) {
     display: none;
+  }
+}
+
+.drop-container.down {
+  animation: fadeOut 0.5s ease-in-out;
+}
+.drop-container.up {
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 100vh;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 100vh;
   }
 }

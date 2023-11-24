@@ -23,7 +23,7 @@ const TempData: Array = [
 
 export const HeaderBody: React.FC<{ name: any }> = ({ name }) => {
   return (
-    <div className="header-dropdown " style={{}}>
+    <div className="header-dropdown opacity-100" style={{}}>
       {name == "Menu" ? (
         <></>
       ) : (
@@ -63,9 +63,8 @@ export const Header: React.FC = () => {
     dispatch(logOut());
     navigate("/");
   };
-  const localTest: boolean = localStorage.getItem("login") || false;
   return (
-    <header className="header left-0 right-0  ">
+    <header className="header left-0 right-0  " style={{ opacity: "2.5" }}>
       <div className="header-bar flex align-center justify-between bg-white">
         <div className="header-bar-left align-center flex flex-row align-center items-center">
           <img
@@ -73,7 +72,10 @@ export const Header: React.FC = () => {
             title="W3Schools"
             width={"38px"}
             className="m-2 ml-5 mr-5"
-            onClick={() => navigate("/")}
+            onClick={async () => {
+              navigate("/");
+              await window.location.reload();
+            }}
           />
           <div className="bar-left-container">
             <ul
@@ -180,7 +182,8 @@ export const Header: React.FC = () => {
               <button
                 className="right-container-login "
                 onClick={() => {
-                  navigate("/auth/login");
+                  window.location.reload();
+                  navigate("/auth/login", { replace: true });
                 }}
               >
                 Log in
@@ -200,7 +203,13 @@ export const Header: React.FC = () => {
           </li>
         </ul>
       </div>
-      {dropHeader ? <HeaderBody name={bannerNav} /> : <></>}
+      {dropHeader ? (
+        <div className="drop-container down">
+          <HeaderBody name={bannerNav} />
+        </div>
+      ) : (
+        <div className="drop-container up"></div>
+      )}
     </header>
   );
 };

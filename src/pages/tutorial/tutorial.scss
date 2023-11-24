@@ -1,0 +1,33 @@
+.infor-tag {
+}
+
+.infor {
+  &-tag {
+    &-frame {
+      &-board {
+        border: 1px solid #282a35;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.tag-frame-board {
+  border: 0.5px solid #dee2e6;
+  border-radius: 10px;
+}
+
+.name-button-browse {
+}
+
+.name-button-browse {
+  padding: 15px 25px 15px 25px;
+  background-color: #282a35;
+  color: white;
+  border-radius: 23px;
+  margin: 17px 0px 17px 0px;
+  font-size: 15px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+}

@@ -142,7 +142,7 @@ const MyInfor: React.FC = () => {
   };
 
   return (
-    <section className="mt-24">
+    <section className="mt-24 fade-in">
       <div className="infor-tag flex flex-col items-center ">
         <div className="infor-tag-frame  ">
           <h2 className="tag-frame-name text-3xl uppercase font-semibold">
@@ -160,7 +160,7 @@ const MyInfor: React.FC = () => {
                   <button className="name-button-browse ">Change avatar</button>
                 </div>
               </div>
-              <div className="" style={{ width: "70vh" }}>
+              <div className="opacity-1" style={{ width: "70vh" }}>
                 <Collapse
                   size="large"
                   bordered={false}
