@@ -18,6 +18,7 @@ import CourseContent from "../pages/course/Course";
 import LoadingScreen from "../hook/preLoading/HookUseLoader";
 import MyInfor from "../pages/infor/MyInfor";
 import HookUseLoader from "../hook/preLoading/HookUseLoader";
+import CodePage from "../pages/code/CodePage";
 
 const ProtectedRoute: React.FC<{ children: any }> = ({ children }) => {
   const navigate = useNavigate();
@@ -69,6 +70,10 @@ export const Router = () => {
           element: <HookUseLoader component={<CourseContent />} />,
         },
       ],
+    },
+    {
+      path: "/coding/:id",
+      element:<CodePage/>,
     },
     {
       path: "/auth/:pathAuth",

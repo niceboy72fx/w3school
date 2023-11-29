@@ -165,7 +165,9 @@ export const Header: React.FC = () => {
                 <Dropdown.Divider className="text-black" />
                 <Dropdown.Item className="text-black p-5 flex flex-row items-center justify-start">
                   <LogoutOutlined className="m-2" />
-                  <p className="m-2 ">Sign out</p>
+                  <p className="m-2 " onClick={() => LogOut()}>
+                    Sign out
+                  </p>
                 </Dropdown.Item>
               </Dropdown>
             </div>
