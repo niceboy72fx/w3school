@@ -72,8 +72,8 @@ export const Router = () => {
       ],
     },
     {
-      path: "/coding/:id",
-      element:<CodePage/>,
+      path: "/coding",
+      element: <CodePage />,
     },
     {
       path: "/auth/:pathAuth",
@@ -91,11 +91,11 @@ export const Router = () => {
           path: "/forgot/email-sent",
           element: <EmailSent />,
         },
-        {
-          path: "/forgot/reset",
-          element: <ResetPassword />,
-        },
       ],
+    },
+    {
+      path: "/password-reset/:id?email=:email",
+      element: <ResetPassword />,
     },
     {
       path: "*",

@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Header = () => {
   return (
-    <div className="bg-primary text-light py-4 text-center">
-      <h1>HTML-CSS Playground</h1>
+    <div className="bg-primary text-white  text-center flex flex-row items-center ">
+      <button className="name-button-browse " >Back to Home</button>
+      <h3 className="text-center mr-5 ml-5 font-bold">HTML-CSS Playground</h3>
     </div>
   );
 };

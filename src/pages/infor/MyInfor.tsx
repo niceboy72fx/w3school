@@ -1,9 +1,11 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import "./MyInfor.scss";
 import { Accordion } from "flowbite-react";
 import { Collapse } from "antd";
 import { CollapseProps } from "react-bootstrap";
 import { CaretRightOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { resetPassword } from "../../redux/reducer/auth";
 
 const SecurityInfor: React.FC = () => {
   return (
@@ -67,6 +69,15 @@ const SecurityInfor: React.FC = () => {
 };
 
 const Infor: React.FC = () => {
+  const [name , setName] = useState<string>(JSON.parse(localStorage.getItem("name")) || "");
+  const [email , setEmail] = useState<string>(JSON.parse(localStorage.getItem("email")) || "");
+
+  const dispatch = useDispatch();
+
+  const updateInfor = () => { 
+    // dispatch(updateInfor({name: name, email:email}))
+  };
+
   return (
     <form>
       <div className="relative z-0 w-full mb-6 group">
@@ -76,6 +87,7 @@ const Infor: React.FC = () => {
           id="floating_email"
           className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer"
           placeholder=" "
+          value={name}
           required
         />
         <label
@@ -93,6 +105,7 @@ const Infor: React.FC = () => {
           id="floating_email"
           className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-green-600 focus:outline-none focus:ring-0 focus:border-green-600 peer"
           placeholder=" "
+          value={email}
           required
         />
         <label
@@ -104,6 +117,7 @@ const Infor: React.FC = () => {
       </div>
       <button
         type="submit"
+        onClick={updateInfor}
         className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 "
       >
         Update Information
@@ -113,11 +127,7 @@ const Infor: React.FC = () => {
 };
 
 const MyInfor: React.FC = () => {
-  const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
+
   const getItems: (panelStyle: CSSProperties) => CollapseProps["items"] = (
     panelStyle
   ) => [

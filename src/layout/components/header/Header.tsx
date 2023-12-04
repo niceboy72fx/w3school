@@ -185,7 +185,8 @@ export const Header: React.FC = () => {
                 className="right-container-login "
                 onClick={() => {
                   window.location.reload();
-                  navigate("/auth/login", { replace: true });
+                  // navigate("/auth/login");
+                  window.location.replace("/auth/login");
                 }}
               >
                 Log in

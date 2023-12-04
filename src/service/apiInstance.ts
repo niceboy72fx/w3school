@@ -22,6 +22,9 @@ export const Auth = async (req: object, auth: string) => {
   try {
     const response = await axiosInstance.post(`/${auth}`, req);
     localStorage.setItem("login", "true");
+    localStorage.setItem("name", JSON.stringify(response.data.name));
+    localStorage.setItem("email", JSON.stringify(response.data.email));
+    window.location.replace("/");
   } catch (error) {
     throw new Error("Authentication failed");
   }
@@ -38,12 +41,25 @@ export const LogOut = async () => {
   }
 };
 
-export const ResetPassword = async (req: object) => {
+export const ResetPasswordEmail = async (req: object) => {
+  await fetchCSRFToken();
+  try {
+    const response = await axiosInstance.post(`/forgot-password`, req);
+    console.log("test");
+    // navigate("/forgot/email-sent");
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Authentication failed");
+  }
+};
+
+export const UpdateInfor = async (req: object) => {
   const navigate = useNavigate();
   await fetchCSRFToken();
   try {
     const response = await axiosInstance.post(`/reset-password`, req);
-    navigate("/forgot/email-sent");
+    window.location.replace("/forgot/email-sent");
     console.log(response);
   } catch (error) {
     console.log(error);

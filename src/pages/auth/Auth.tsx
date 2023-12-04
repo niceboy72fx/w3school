@@ -147,7 +147,7 @@ const FormBox: React.FC<{ name: any }> = ({ name }) => {
             <div className="intro-search-input m-2  flex flex-row items-center outline outline-1  h-full bg-white  rounded-3xl ">
               <input
                 className="outline-none border-none ml-2 mr-2  hover:not-italic font-bold w-96 h-11"
-                type="search"
+                type="password"
                 ref={rePass}
                 style={{ backgroundColor: "white" }}
                 placeholder="Re-type password !"
