@@ -7,7 +7,6 @@ const CodeRunner = createSlice({
   reducers: {
     postCode: (state, action) => {
       runCode(action.payload);
-      console.log(action.payload);
     },
   },
 });
