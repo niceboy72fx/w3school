@@ -1,6 +1,9 @@
 import { message } from "antd";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { TOAST_MESSAGE } from "../redux/reducer/toastMessage";
+import store from "../redux/store";
 
 export const apiBaseUrl: string = "http://localhost";
 
@@ -26,6 +29,13 @@ export const Auth = async (req: object, auth: string) => {
     localStorage.setItem("email", JSON.stringify(response.data.email));
     window.location.replace("/");
   } catch (error) {
+    // store.dispatch(
+    //   TOAST_MESSAGE({
+    //     type: "error",
+    //     content: error,
+    //     duration: 5,
+    //   })
+    // );
     throw new Error("Authentication failed");
   }
 };
@@ -55,15 +65,15 @@ export const ResetPasswordEmail = async (req: object) => {
 };
 
 export const UpdateInfor = async (req: object) => {
-  const navigate = useNavigate();
   await fetchCSRFToken();
   try {
-    const response = await axiosInstance.post(`/reset-password`, req);
-    window.location.replace("/forgot/email-sent");
-    console.log(response);
+    return await axiosInstance.post(
+      `api/profile/update`,
+      { _method: "PUT", ...req },
+      { headers: { "Content-Type": "multipart/form-data" } }
+    );
   } catch (error) {
     console.log(error);
-    // messageApi.error("" + error);
     throw new Error("Authentication failed");
   }
 };

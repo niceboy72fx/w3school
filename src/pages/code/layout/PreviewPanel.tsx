@@ -2,21 +2,22 @@ import { useContext, useEffect, useState } from "react";
 import { Context } from "../context";
 
 export const PreviewPanel = () => {
-  const { state } = useContext(Context);
+  const state = localStorage.getItem("ms-playground-");
   const [srcDoc, setSrcDoc] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    console.log(state);
     const timeout = setTimeout(() => {
       const srcDoc = `
-          ${state.html}
+          ${state}
       `;
       setLoading(true);
       setSrcDoc(srcDoc);
     }, 1000);
     setLoading(false);
     return () => clearTimeout(timeout);
-  }, [state.html]);
+  }, [state]);
 
   return (
     <div className="p-3 border-bottom mx-1 " style={{ height: "80vh" }}>

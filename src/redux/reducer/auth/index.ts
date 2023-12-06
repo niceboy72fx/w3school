@@ -24,8 +24,7 @@ const AuthSlice = createSlice({
         oldPassword: action.payload,
         newPassword: action.payload,
       }),
-    updateInfor: (state, action) =>
-    UpdateInfor({ name: action.payload, email: action.payload }),
+    updateInfor: (state, action) => UpdateInfor(action.payload),
   },
 });
 
@@ -35,6 +34,7 @@ export const {
   register,
   forgotPassword,
   resetPassword,
+  updateInfor,
 } = AuthSlice.actions;
 
 export default AuthSlice.reducer;

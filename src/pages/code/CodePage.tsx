@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Header from "./components/Header";
-import { htmlDefaultTemplate2 } from "./config";
 import { Context } from "./context";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Layout } from "./layout/Layout";
@@ -9,11 +8,12 @@ import { useDispatch } from "react-redux";
 import { postCode } from "../../redux/reducer/codeRunner";
 import { runCode } from "../../service/apiRadpidInstances";
 
-const initialState: IState = {
-  html: htmlDefaultTemplate2,
-};
+
 function CodePage() {
-  const [state, dispatch] = useLocalStorage("state", initialState);
+  const [state, dispatch] = useLocalStorage(
+    "state",
+    localStorage.getItem("ms-playground-")
+  );
   const reduxDispatch = useDispatch();
   useEffect(() => {
     reduxDispatch(postCode({ props: { codePage: state, lang: "html" } }));

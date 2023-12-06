@@ -5,15 +5,23 @@
   height: 100%;
   &-sider {
     width: 30vh;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: -1;
     padding: 22px;
     background-color: #e7e9eb;
-    height: 91.5vh;
+    min-height: 100vh;
     box-sizing: border-box;
   }
   &-content {
     width: 100%;
     height: 100%;
+    padding-left: 30vh;
   }
+}
+
+
+.content-page{
+  min-height: 60vh;
 }

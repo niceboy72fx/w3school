@@ -6,7 +6,7 @@ import { Context } from "../context";
 
 export const EditorPanel = () => {
   const { state, dispatch } = useContext(Context);
- 
+
   return (
     <div className="">
       <div className="tab-content " id="myTabContent">
@@ -23,13 +23,8 @@ export const EditorPanel = () => {
             theme={"vs-dark"}
             height="100%"
             defaultLanguage="html"
-            value={state.html}
-            onChange={(value) =>
-              dispatch((prevState) => ({
-                ...prevState,
-                html: value ? value : "",
-              }))
-            }
+            value={localStorage.getItem("ms-playground-")}
+            onChange={(value) => localStorage.setItem("ms-playground-", value)}
           />
         </div>
       </div>

@@ -5,7 +5,7 @@ import { Collapse } from "antd";
 import { CollapseProps } from "react-bootstrap";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { resetPassword } from "../../redux/reducer/auth";
+import { resetPassword, updateInfor } from "../../redux/reducer/auth";
 
 const SecurityInfor: React.FC = () => {
   return (
@@ -69,13 +69,17 @@ const SecurityInfor: React.FC = () => {
 };
 
 const Infor: React.FC = () => {
-  const [name , setName] = useState<string>(JSON.parse(localStorage.getItem("name")) || "");
-  const [email , setEmail] = useState<string>(JSON.parse(localStorage.getItem("email")) || "");
+  const [name, setName] = useState<string>(
+    JSON.parse(localStorage.getItem("name")) || ""
+  );
+  const [email, setEmail] = useState<string>(
+    JSON.parse(localStorage.getItem("email")) || ""
+  );
 
   const dispatch = useDispatch();
 
-  const updateInfor = () => { 
-    // dispatch(updateInfor({name: name, email:email}))
+  const inforUser = () => {
+    dispatch(updateInfor({ name: name, email: email }));
   };
 
   return (
@@ -117,7 +121,7 @@ const Infor: React.FC = () => {
       </div>
       <button
         type="submit"
-        onClick={updateInfor}
+        onClick={inforUser}
         className="text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 "
       >
         Update Information
@@ -127,7 +131,6 @@ const Infor: React.FC = () => {
 };
 
 const MyInfor: React.FC = () => {
-
   const getItems: (panelStyle: CSSProperties) => CollapseProps["items"] = (
     panelStyle
   ) => [
