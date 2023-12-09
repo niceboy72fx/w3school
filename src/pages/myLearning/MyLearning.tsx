@@ -3,7 +3,7 @@ import "./MyLearning.scss";
 import html from "./html.svg";
 import { FlashCard, ProgressCard } from "../components/Card";
 import { PreBag } from "../components/ProgressBag";
-
+import { useNavigate } from "react-router";
 
 const mock: object = [
   {
@@ -36,6 +36,7 @@ const mock: object = [
   },
 ];
 const ListCourse: React.FC<{ listCourse: object }> = () => {
+  const navigate = useNavigate();
   return (
     <section>
       <div className="grid grid-cols-4 gap-4 m-10">
@@ -44,7 +45,10 @@ const ListCourse: React.FC<{ listCourse: object }> = () => {
         ))}
       </div>
       <div className=" w-full flex justify-end ">
-        <button className="hover:text-green-600 mr-16 mb-10 transition transition-opacity:0.2s duration-1000 text-sm font-bold">
+        <button
+          className="hover:text-green-600 mr-16 mb-10 transition transition-opacity:0.2s duration-1000 text-sm font-bold"
+          onClick={() => navigate(`/tutorial`)}
+        >
           Explore All
         </button>
       </div>
