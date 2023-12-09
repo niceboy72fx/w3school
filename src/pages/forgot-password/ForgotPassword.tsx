@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./ForgotPassword.scss";
 import { Button } from "antd";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { forgotPassword } from "../../redux/reducer/auth";
 import { ResetPasswordEmail } from "../../service/apiInstance";
@@ -61,9 +61,11 @@ export const EmailConfirm = () => {
 };
 
 export const ResetPassword = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
-   const token = searchParams.get("email");
-   console.log(token)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  const token = queryParams.get("email");
+  console.log(token);
   return (
     <section className="forgot flex justify-center items-center">
       <div className="forgot-form shadow-2xl">

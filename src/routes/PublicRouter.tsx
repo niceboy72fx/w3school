@@ -1,10 +1,8 @@
-import NotFound404 from "../pages/components/NotFound404";
 import HookUseLoader from "../hook/preLoading/HookUseLoader";
-import DefaultLayout from "../layout/DefaultLayout";
-import FormAuth from "../pages/auth/Auth";
 import HomePage from "../pages/homepage/HomePage";
 import Tutorial from "../pages/tutorial/Tutorial";
-import { RouterConfig } from "../util/router-config-url";
+import CourseContent from "../pages/course/Course";
+import SearchPage from "../pages/search/Search";
 
 export default [
   {
@@ -21,5 +19,9 @@ export default [
       return user;
     },
     element: <HookUseLoader component={<Tutorial />} />,
+  },
+  {
+    path: "/search",
+    element: <SearchPage />,
   },
 ];

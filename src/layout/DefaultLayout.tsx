@@ -5,16 +5,16 @@ import { Footer } from "./components/footer/Footer";
 
 import { Outlet } from "react-router";
 
-export const CourseLayout: React.FC<> = () => {
+export const CourseLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <section className="course">
       <Header />
-      <Outlet/>
+      {children}
     </section>
   );
 };
-
-
 
 export default function DefaultLayout() {
   return (

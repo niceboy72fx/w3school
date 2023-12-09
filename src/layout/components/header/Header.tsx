@@ -23,11 +23,11 @@ const TempData: Array = [
 
 export const HeaderBody: React.FC<{ name: any }> = ({ name }) => {
   return (
-    <div className="header-dropdown opacity-100" style={{}}>
+    <div className="header-dropdown opacity-100 z-50" style={{}}>
       {name == "Menu" ? (
         <></>
       ) : (
-        <div className="header-dropdown-nav">
+        <div className="header-dropdown-nav opacity-100">
           <div className="dropdown-nav-banner flex items-center justify-between w-full ">
             <h3
               className="text-left font-bold"
@@ -64,7 +64,7 @@ export const Header: React.FC = () => {
     navigate("/");
   };
   return (
-    <header className="header left-0 right-0  " style={{ opacity: "2.5" }}>
+    <header className="header left-0 right-0 opacity-100 ">
       <div className="header-bar flex align-center justify-between bg-white">
         <div className="header-bar-left align-center flex flex-row align-center items-center">
           <img
@@ -124,10 +124,10 @@ export const Header: React.FC = () => {
         </div>
         <div className="header-bar-right flex flex-row items-center">
           {localStorage.getItem("login") == "true" ? (
-            <div className="mr-14">
+            <div className="mr-14 ">
               <Dropdown
                 label={
-                  <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-green-600 float-left">
+                  <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-3xl dark:bg-green-600 float-left">
                     <svg
                       className="absolute w-12 h-12 text-white -left-1"
                       fill="currentColor"
@@ -207,7 +207,7 @@ export const Header: React.FC = () => {
         </ul>
       </div>
       {dropHeader ? (
-        <div className="drop-container down">
+        <div className="drop-container down z-10 opacity-100">
           <HeaderBody name={bannerNav} />
         </div>
       ) : (

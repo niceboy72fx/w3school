@@ -48,8 +48,7 @@ export const Router = () => {
       children: [...PublicRouter, ...privateRoute],
     },
     {
-      path: "/course",
-      element: <CourseLayout />,
+      path: "/courses/:name",
       loader: async () => {
         const response = await fetch(
           `https://6397f68586d04c7633a1b143.mockapi.io/test`
@@ -57,20 +56,9 @@ export const Router = () => {
         const user = await response.json();
         return user;
       },
-      children: [
-        {
-          path: "/course/:name",
-          loader: async () => {
-            const response = await fetch(
-              `https://6397f68586d04c7633a1b143.mockapi.io/test`
-            );
-            const user = await response.json();
-            return user;
-          },
-          element: <HookUseLoader component={<CourseContent />} />,
-        },
-      ],
+      element: <CourseContent component={<CourseContent />} />,
     },
+
     {
       path: "/coding",
       element: <CodePage />,
@@ -94,7 +82,7 @@ export const Router = () => {
       ],
     },
     {
-      path: "/password-reset/:id?email=:email",
+      path: "/password-reset/:id",
       element: <ResetPassword />,
     },
     {
