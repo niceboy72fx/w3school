@@ -7,6 +7,8 @@ import { logIn, register } from "../../redux/reducer/auth";
 import { useNavigate, useParams } from "react-router";
 import useValidate from "../../hook/useValidate";
 import toastMessage, { TOAST_MESSAGE } from "../../redux/reducer/toastMessage";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import { Auth, OAuthGoogle } from "../../service/apiInstance";
 
 const FormAuth: React.FC = () => {
   const { pathAuth } = useParams<string>();
@@ -53,6 +55,7 @@ const FormBox: React.FC<{ name: any }> = ({ name }) => {
   const password = useRef<HTMLInputElement | string>(null);
   const rePass = useRef<HTMLInputElement | string>(null);
   const dispatch = useDispatch();
+  const getDataToast = useSelector((state: any) => state.logIn);
   const buttonSubmit = (event) => {
     event.preventDefault();
     if (name == "LogIn") {
@@ -61,7 +64,8 @@ const FormBox: React.FC<{ name: any }> = ({ name }) => {
           email: email.current?.value,
           password: password.current?.value,
         };
-        dispatch(logIn(data));
+        Auth(dispatch, data, "login");
+        // dispatch(logIn(data));
       } else {
         dispatch(
           TOAST_MESSAGE({
@@ -72,17 +76,15 @@ const FormBox: React.FC<{ name: any }> = ({ name }) => {
         );
       }
     } else {
-      if (password.current?.value === rePass.current?.value) {
-        const data: any = {
-          name: nameUser.current?.value,
-          email: email.current?.value,
-          password: password.current?.value,
-          password_confirmation: rePass.current?.value,
-        };
-        dispatch(register(data));
-        if (localStorage.getItem("login") == "true") {
-          navigate("/");
-        }
+      const data: any = {
+        name: nameUser.current?.value,
+        email: email.current?.value,
+        password: password.current?.value,
+        password_confirmation: rePass.current?.value,
+      };
+      Auth(dispatch, data, "register");
+      if (localStorage.getItem("login") == "true") {
+        navigate("/");
       }
     }
   };
@@ -253,10 +255,23 @@ const SignUp: React.FC = () => {
 };
 
 const Oauth: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const dispatch = useDispatch();
+  const handleLogin = (response) => {
+    setIsAuthenticated(true);
+    setUserData(response.profileObj);
+  };
+
   return (
     <>
       <div className="flex items-center justify-center">
-        <button className="rounded-full border-solid border-2  ">
+        <button
+          className="rounded-full border-solid border-2  "
+          onClick={() => {
+            OAuthGoogle(dispatch);
+          }}
+        >
           <svg
             className="w-6 h-6 dark:text-green-600 m-3"
             aria-hidden="true"

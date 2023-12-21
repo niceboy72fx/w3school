@@ -137,7 +137,11 @@ const HomePage: React.FC = () => {
                 <div className="boxing-example box-margin" id="hide_container">
                   <p className="font-bold">{item.name} Example</p>
                   <img src={mock} />
-                  <button>Try it Yourself</button>
+                  <button
+                    onClick={() => navigate("/coding", { replace: true })}
+                  >
+                    Try it Yourself
+                  </button>
                 </div>
               </div>
             </div>

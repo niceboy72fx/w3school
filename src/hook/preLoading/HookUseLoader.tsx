@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./preLoading.css";
 import { useLoaderData } from "react-router";
 
@@ -6,10 +6,16 @@ const HookUseLoader: React.FC<{ component: React.ReactNode }> = ({
   component,
 }) => {
   const data = useLoaderData();
-  if (!data) {
+  const [loaders, setLoaders] = useState<boolean>(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaders(true);
+    }, 3000);
+  }, [data]);
+  if (!loaders) {
     return (
       <div
-        className="w-full  relative  preload  opacity-100 "
+        className="w-full  relative  preload  opacity-100 z-50 "
         style={{ height: "90vh" }}
       >
         <div className="loader rubix-cube">

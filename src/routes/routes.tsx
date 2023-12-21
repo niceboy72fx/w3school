@@ -49,13 +49,6 @@ export const Router = () => {
     },
     {
       path: "/courses/:name",
-      loader: async () => {
-        const response = await fetch(
-          `https://6397f68586d04c7633a1b143.mockapi.io/test`
-        );
-        const user = await response.json();
-        return user;
-      },
       element: <CourseContent component={<CourseContent />} />,
     },
 
@@ -82,7 +75,7 @@ export const Router = () => {
       ],
     },
     {
-      path: "/password-reset/:id",
+      path: "/password-reset/:token",
       element: <ResetPassword />,
     },
     {

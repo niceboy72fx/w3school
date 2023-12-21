@@ -1,7 +1,7 @@
 import MEditor from "@monaco-editor/react";
 import { useContext } from "react";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
-import { editorOptions } from "../config";
+import { editorOptions } from "../../../util/config";
 import { Context } from "../context";
 
 export const EditorPanel = () => {

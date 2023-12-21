@@ -155,7 +155,7 @@ const MyInfor: React.FC = () => {
   };
 
   return (
-    <section className="mt-24 fade-in">
+    <section className="mt-24 fade-in  min-h-screen">
       <div className="infor-tag flex flex-col items-center ">
         <div className="infor-tag-frame  ">
           <h2 className="tag-frame-name text-3xl uppercase font-semibold">

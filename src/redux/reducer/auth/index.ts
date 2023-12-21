@@ -1,3 +1,4 @@
+import { PostsState } from "./../../../type";
 import { createSlice } from "@reduxjs/toolkit";
 import { ActionLogin, ActionRegister } from "../../action/auth";
 import axios from "axios";
@@ -8,12 +9,13 @@ import {
   UpdateInfor,
 } from "../../../service/apiInstance";
 
-const AuthSlice = createSlice({
+const AuthReducer = createSlice({
   name: "auth",
   initialState: {},
   reducers: {
     logIn: (state, action) => {
-      Auth(action.payload, "login");
+      console.log("test"); //
+      Auth(action.payload, "login"); // not working
     },
     logOut: (state, action) => LogOut(),
     register: (state, action) => Auth(action.payload, "register"),
@@ -35,6 +37,6 @@ export const {
   forgotPassword,
   resetPassword,
   updateInfor,
-} = AuthSlice.actions;
+} = AuthReducer.actions;
 
-export default AuthSlice.reducer;
+export default AuthReducer.reducer;
